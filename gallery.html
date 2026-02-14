@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gallery | Mpolokeng Kolo</title>
+    <link rel="stylesheet" href="astyle.css">
+</head>
+<body>
+
+<header>
+    <h1> ITS US ❤️</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About US</a>
+        <a href="register.html">Register</a>
+        <a href="favorite-foods.html">Favorite Foods</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="container">
+
+    <div class="category-buttons">
+        <button onclick="filterGallery('all')">All</button>
+        <button onclick="filterGallery('couples')">US</button>
+        <button onclick="filterGallery('food')">Food</button>
+    
+    </div>
+
+    <div class="gallery-grid">
+
+        <!-- Couples -->
+        <div class="gallery-item couples">
+            <img src="WhatsApp Image 2026-01-29 at 00.40.16.jpeg">
+            <div class="like-btn" onclick="like(this)">❤️ <span>0</span></div>
+        </div>
+
+        <div class="gallery-item couples">
+            <img src="WhatsApp Image 2026-02-14 at 01.51.26 (2).jpeg">
+            <div class="like-btn" onclick="like(this)">❤️ <span>0</span></div>
+        </div>
+
+        <div class="gallery-item couples">
+            <img src="WhatsApp Image 2026-02-14 at 01.51.09 (1).jpeg">
+            <div class="like-btn" onclick="like(this)">❤️ <span>0</span></div>
+        </div>
+
+        <!-- Food -->
+        <div class="gallery-item food">
+            <img src="WhatsApp Image 2026-02-14 at 01.51.08.jpeg">
+            <div class="like-btn" onclick="like(this)">❤️ <span>0</span></div>
+        </div>
+
+        <div class="gallery-item food">
+            <img src="WhatsApp Image 2026-01-29 at 00.47.28 (2).jpeg">
+            <div class="like-btn" onclick="like(this)">❤️ <span>0</span></div>
+        </div>
+
+        <div class="gallery-item food">
+            <img src="WhatsApp Image 2026-02-14 at 01.51.01.jpeg">
+            <div class="like-btn" onclick="like(this)">❤️ <span>0</span></div>
+        </div>
+
+        <!-- Events -->
+        <div class="gallery-item events">
+            <img src="WhatsApp Image 2026-02-14 at 01.51.20.jpeg">
+            <div class="like-btn" onclick="like(this)">❤️ <span>0</span></div>
+        </div>
+
+        <div class="gallery-item events">
+            <img src="Screenshot (19).png">
+            <div class="like-btn" onclick="like(this)">❤️ <span>0</span></div>
+        </div>
+
+        <div class="gallery-item events">
+            <img src="WhatsApp Image 2026-02-14 at 01.51.26 (1).jpeg">
+            <div class="like-btn" onclick="like(this)">❤️ <span>0</span></div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    © 2026 Mpolokeng Kolo Valentine with me
+</footer>
+
+<script>
+function filterGallery(category) {
+    const items = document.querySelectorAll(".gallery-item");
+
+    items.forEach(item => {
+        if (category === "all" || item.classList.contains(category)) {
+            item.style.display = "block";
+        } else {
+            item.style.display = "none";
+        }
+    });
+}
+
+function like(button) {
+    let count = button.querySelector("span");
+    let current = parseInt(count.innerText);
+    count.innerText = current + 1;
+}
+
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+
+  // Random horizontal position
+  heart.style.left = Math.random() * window.innerWidth + "px";
+
+  // Random size
+  const size = Math.random() * 20 + 10; // between 10px and 30px
+  heart.style.width = size + "px";
+  heart.style.height = size + "px";
+
+  // Random color (black, red, pink)
+  const colors = ["black", "red", "pink"];
+  heart.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+  // Random animation duration
+  const duration = Math.random() * 5 + 5; // between 5s and 10s
+  heart.style.animationDuration = duration + "s";
+
+  document.body.appendChild(heart);
+
+  // Remove heart after animation ends
+  setTimeout(() => {
+    heart.remove();
+  }, duration * 1000);
+}
+
+// Generate hearts continuously
+setInterval(createHeart, 500); // every 0.5 seconds
+</script>
+<footer>
+    © 2026 Mpolokeng Kolo Valentine with me
+</footer>
+</body>
+</html>

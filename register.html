@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register | Mpolokeng Kolo</title>
+    <link rel="stylesheet" href="astyle.css">
+</head>
+<body>
+
+<header>
+    <h1>Register To make sure I get your Valentine INFO </h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About US</a>
+        <a href="register.html">Register</a>
+        <a href="favorite-foods.html">food</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="form-box">
+        <h2>Reserve Your Spot ❤️</h2>
+        <form>
+            <input type="text" placeholder="Your Full Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <input type="password" placeholder="Create Password" required>
+            <input type="text" placeholder="Partner’s Name (Optional)">
+            <input type="submit" value="Register Now">
+        </form>
+    </div>
+</div>
+
+<footer>
+    © 2026 Mpolokeng Kolo Valentine with me
+</footer>
+
+<script>
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+
+  // Random horizontal position
+  heart.style.left = Math.random() * window.innerWidth + "px";
+
+  // Random size
+  const size = Math.random() * 20 + 10; // between 10px and 30px
+  heart.style.width = size + "px";
+  heart.style.height = size + "px";
+
+  // Random color (black, red, pink)
+  const colors = ["black", "red", "pink"];
+  heart.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+  // Random animation duration
+  const duration = Math.random() * 5 + 5; // between 5s and 10s
+  heart.style.animationDuration = duration + "s";
+
+  document.body.appendChild(heart);
+
+  // Remove heart after animation ends
+  setTimeout(() => {
+    heart.remove();
+  }, duration * 1000);
+}
+
+// Generate hearts continuously
+setInterval(createHeart, 500); // every 0.5 seconds
+</script>
+</body>
+</html>

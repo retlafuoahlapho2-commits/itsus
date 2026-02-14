@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>| Mpolokeng Kolo</title>
+    <link rel="stylesheet" href="astyle.css">
+</head>
+<body>
+
+<header>
+    <h1>I know you will love this side the most </h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About US</a>
+        <a href="register.html">Register</a>
+        <a href="favorite-foods.html">food</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<form id="foodForm">
+    <input type="text" id="food1" placeholder="Favorite Food 1" required>
+    <input type="text" id="food2" placeholder="Favorite Food 2" required>
+    <input type="text" id="food3" placeholder="Favorite Food 3" required>
+    <input type="text" id="food4" placeholder="Favorite Food 4" required>
+    <input type="text" id="food5" placeholder="Favorite Food 5" required>
+
+    <input type="submit" value="Save Preferences">
+</form>
+
+<p id="message"></p>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const foods = ["food1", "food2", "food3", "food4", "food5"];
+
+    foods.forEach(id => {
+        if (localStorage.getItem(id)) {
+            document.getElementById(id).value = localStorage.getItem(id);
+        }
+    });
+
+    document.getElementById("foodForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        foods.forEach(id => {
+            localStorage.setItem(id, document.getElementById(id).value);
+        });
+
+        document.getElementById("message").innerText = 
+            "Your favorite foods have been saved ❤️";
+    });
+});
+</script>
+
+<script>
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+
+  // Random horizontal position
+  heart.style.left = Math.random() * window.innerWidth + "px";
+
+  // Random size
+  const size = Math.random() * 20 + 10; // between 10px and 30px
+  heart.style.width = size + "px";
+  heart.style.height = size + "px";
+
+  // Random color (black, red, pink)
+  const colors = ["black", "red", "pink"];
+  heart.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+  // Random animation duration
+  const duration = Math.random() * 5 + 5; // between 5s and 10s
+  heart.style.animationDuration = duration + "s";
+
+  document.body.appendChild(heart);
+
+  // Remove heart after animation ends
+  setTimeout(() => {
+    heart.remove();
+  }, duration * 1000);
+}
+
+// Generate hearts continuously
+setInterval(createHeart, 500); // every 0.5 seconds
+</script>
+<footer>
+    © 2026 Mpolokeng Kolo Valentine with me
+</footer>
+</body>
+</html>
